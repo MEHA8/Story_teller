@@ -1,113 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Unbounded:wght@400;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Unbounded', cursive;
-  background: linear-gradient(to bottom, #0a0a23, #1a1a40);
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
   color: #fff;
-  overflow-x: hidden;
-}
-
-.screen {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin: 0;
   padding: 2rem;
+  text-align: center;
+  background-image: linear-gradient(to bottom, #1e293b, #0f172a);
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #facc15, 0 0 20px #fcd34d;
   margin-bottom: 2rem;
-  color: #fcd34d;
-  animation: glow 3s ease-in-out infinite alternate;
 }
 
 .story-options {
+  margin-bottom: 2rem;
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
   justify-content: center;
+  gap: 1rem;
 }
 
-.story-btn {
-  padding: 1.2rem 2rem;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  background: #3b82f6;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 15px #2563eb;
-}
-
-.story-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px #93c5fd;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fcd34d, 0 0 20px #fbbf24;
-  }
-  to {
-    text-shadow: 0 0 20px #fde68a, 0 0 30px #facc15;
-  }
-}
-
-#story-container {
+input[type="radio"] {
   display: none;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  text-align: center;
-  transition: background 1s ease-in-out;
 }
 
-.scene-text {
-  font-size: 1.5rem;
-  max-width: 700px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1.5rem;
-  border-radius: 10px;
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-.next-btn {
-  margin-top: 2rem;
+label {
+  background: #1e40af;
   padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background: #f59e0b;
-  border: none;
   border-radius: 8px;
-  color: white;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #0ea5e9;
 }
 
-.next-btn:hover {
+label:hover, input[type="radio"]:checked + label {
+  background: #2563eb;
   transform: scale(1.05);
-  background: #fbbf24;
+  box-shadow: 0 0 20px #38bdf8;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Scenes */
+.story-container {
+  position: relative;
+  height: 300px;
+  margin-top: 2rem;
+}
+
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Show scenes based on radio button selection */
+#story1:checked ~ .story-container .scene1,
+#story2:checked ~ .story-container .scene2,
+#story3:checked ~ .story-container .scene3 {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
 }

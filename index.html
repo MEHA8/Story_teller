@@ -2,22 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Storyteller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StoryTeller</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="home" class="screen">
-    <h1 class="title">Choose Your Adventure</h1>
-    <div class="story-options">
-      <button class="story-btn" data-story="story1">🌲 The Enchanted Forest</button>
-      <button class="story-btn" data-story="story2">🏰 The Lost Kingdom</button>
-      <button class="story-btn" data-story="story3">🚀 The Cosmic Journey</button>
+  <h1 class="title">StoryTeller ✨</h1>
+
+  <div class="story-options">
+    <input type="radio" name="story" id="story1" checked>
+    <input type="radio" name="story" id="story2">
+    <input type="radio" name="story" id="story3">
+
+    <div class="labels">
+      <label for="story1">🌲 The Forest Whispers</label>
+      <label for="story2">🌊 The Ocean's Secret</label>
+      <label for="story3">⛰️ The Mountain Echo</label>
+    </div>
+
+    <div class="story-container">
+      <div class="scene scene1">
+        <h2>Chapter 1: Into the Forest</h2>
+        <p>The trees whispered tales of ancient magic...</p>
+      </div>
+      <div class="scene scene2">
+        <h2>Chapter 1: The Ocean’s Whisper</h2>
+        <p>Waves crashed and revealed secrets deep below...</p>
+      </div>
+      <div class="scene scene3">
+        <h2>Chapter 1: Echoes of the Peak</h2>
+        <p>The wind carried voices of forgotten warriors...</p>
+      </div>
     </div>
   </div>
-
-  <div id="story-container"></div>
-
-  <script src="script.js"></script>
 </body>
 </html>
